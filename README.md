@@ -42,10 +42,26 @@ pip install numpy matplotlib
 
 ## 🖼️ Sample Output
 
-The script includes several plotted examples of the $k$-numerical range for different matrices, demonstrating how the shape evolves as $k$ changes.
-![Naive Method for the $k$-numerical range using trace in python](images/A_0_Naive_Method.png)
+The script includes several plotted examples of the $k$-numerical range for different matrices, demonstrating how the shape evolves as $k$ changes. $A_0$ is my first version of the $k$-numerical range in Python. This naive method primarily used NumPy’s trace function to compute the approximation, with a structure like:
+
+```python
+approx = np.trace(X.conj().T @ A @ X) / k
+```
+
+![Naive Method A_0 = \diag(i, -i, 1, \ldots, 1)](images/A_0_Naive_Method.png)
+
 ```math
-A_1 =  \begin{bmatrix}
+A_0 = \diag(i, -i, 1, \ldots, 1) \in M_7(\mathbb{C})
+```
+This naive method was not well-suited for accurately tracing the boundary of the $k$-numerical range. Instead, it generated points from the interior of $W_k(A)$ by averaging over randomly chosen subspaces.
+
+Moving on to $A_1$ where
+```math
+\omega = \frac{-1+i\sqrt{3}}{2}
+```
+such that,
+```math
+A_1 = \begin{bmatrix}
     1 & 0 & 0 & 0 & 0 \\
     0 & \omega & 0 & 0 & 0 \\
     0 & 0 & \omega^2 & 0 & 0 \\
@@ -53,3 +69,29 @@ A_1 =  \begin{bmatrix}
     0 & 0 & 0 & 0 & 0
    \end{bmatrix}
 ```
+
+![A_1 matrix](images/A_1_k_range.png)
+
+$A_2$ is the same matrix but $1$ is now a $\frac{1}{2}$
+```math
+A_2 = \begin{bmatrix}
+    1 & 0 & 0 & 0 & 0 \\
+    0 & \omega & 0 & 0 & 0 \\
+    0 & 0 & \omega^2 & 0 & 0 \\
+    0 & 0 & 0 & 0 & \frac{1}{2} \\
+    0 & 0 & 0 & 0 & 0
+   \end{bmatrix}
+```
+![A_2 matrix](images/A_2_k_range.png)
+
+Lastly we have the same matrix $A_3$ but the $1$ becomes a $2$
+```math
+A_3 = \begin{bmatrix}
+    1 & 0 & 0 & 0 & 0 \\
+    0 & \omega & 0 & 0 & 0 \\
+    0 & 0 & \omega^2 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 2 \\
+    0 & 0 & 0 & 0 & 0
+   \end{bmatrix}
+```
+![A_3 matrix](images/A_3_k_range.png)
