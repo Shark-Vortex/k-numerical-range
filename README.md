@@ -51,7 +51,13 @@ approx = np.trace(X.conj().T @ A @ X) / k
 ![Naive Method A_0 = \diag(i, -i, 1, \ldots, 1)](images/A_0_Naive_Method.png)
 
 ```math
-A_0 = \diag(i, -i, 1, \ldots, 1) \in M_7(\mathbb{C})
+A_0 = \begin{bmatrix}
+i & 0 & 0 & \cdots & 0 \\
+0 & -i & 0 & \cdots & 0 \\
+0 & 0 & 1 & \cdots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & \cdots & 1
+\end{bmatrix} \in M_7(\mathbb{C})
 ```
 This naive method was not well-suited for accurately tracing the boundary of the $k$-numerical range. Instead, it generated points from the interior of $W_k(A)$ by averaging over randomly chosen subspaces.
 
