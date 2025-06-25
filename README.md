@@ -1,19 +1,15 @@
-# The k-numerical-range
-An algorithm for computing the k-numerical range
-
 # The $k$-Numerical Range
-
-This project implements a Python-based algorithm to approximate the **$k$-numerical range** of a complex matrix.
+An algorithm for computing the k-numerical range for any given matrix.
 
 ## 🔍 What is the $k$-Numerical Range?
 
 The $k$-numerical range, $W_k(A)$, is a generalization of the classical numerical range. Instead of computing a single value $x^*Ax$ for a unit vector $x$, this version averages over $k$ orthonormal vectors:
 ```math
-$W_k(A) = \left\{ \frac{1}{k} \sum_{j=1}^{k} x_j^* A x_j \ : \ x_j \text{ orthonormal} \right\}$
+W_k(A) = \left\{ \frac{1}{k} \sum_{i=1}^{k} x_i^* A x_i \ : \ x_i \text{ orthonormal} \right\}
 ```
 This set is always:
-- Convex (no sharp corners),
-- Compact (bounded and closed),
+- Convex (e.g., may appear as shapes like squares, circles, or triangles),
+- Compact (Closed and Bounded),
 - Useful in matrix theory and applications involving averages of eigenvalues.
 
 ## 🧠 How the Algorithm Works
@@ -37,14 +33,23 @@ This approach generalizes a known method (Carl Cowen’s) for the classical case
 This project uses:
 - `numpy`
 - `matplotlib`
-- `scipy`
 
 Install them with:
 
 ```bash
-pip install numpy matplotlib scipy
+pip install numpy matplotlib
 ```
 
 ## 🖼️ Sample Output
 
 The script includes several plotted examples of the $k$-numerical range for different matrices, demonstrating how the shape evolves as $k$ changes.
+![Naive Method for the $k$-numerical range using trace in python](images/A_0_Naive_Method.png)
+```math
+A_1 =  \begin{bmatrix}
+    1 & 0 & 0 & 0 & 0 \\
+    0 & \omega & 0 & 0 & 0 \\
+    0 & 0 & \omega^2 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0 & 0
+   \end{bmatrix}
+```
