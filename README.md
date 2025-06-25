@@ -8,9 +8,9 @@ This project implements a Python-based algorithm to approximate the **$k$-numeri
 ## 🔍 What is the $k$-Numerical Range?
 
 The $k$-numerical range, $W_k(A)$, is a generalization of the classical numerical range. Instead of computing a single value $x^*Ax$ for a unit vector $x$, this version averages over $k$ orthonormal vectors:
-\[
+$$
 W_k(A) = \left\{ \frac{1}{k} \sum_{j=1}^{k} x_j^* A x_j \ : \ x_j \text{ orthonormal} \right\}
-\]
+$$
 
 This set is always:
 - Convex (no sharp corners),
