@@ -13,18 +13,18 @@
 
 ## 📐 What is the $k$-Numerical Range?
 
-To understand the $k$-numerical range, we must discuss the numerical range. The numerical range is defined as $W(A)$ for a Matrix $A$ of dimension $N$, also known as $n \times n$. It has 8 defined properties which can be found here on <a href="https://numericalshadow.org/numerical-range/properties/" target="_blank" rel="noopener noreferrer">Numericalshadow's website</a>. We will cover the basic ones here,
+To understand the $k$-numerical range, we must discuss the numerical range. The numerical range is defined as $W(A)$ for a Matrix $A$ of dimension $N$, also known as $n \times n$. It has 8 defined properties which can be found here on <a href="https://numericalshadow.org/numerical-range/properties/" target="_blank" rel="noopener noreferrer">Numericalshadow's website</a>. We will cover a few basic properties here,
 
 1. $W(A)$ is a compact subset of $\mathbb{C}$.
     - It contains the imaginary numbers set, for which $i$ is defined as: $i = \sqrt{-1}$.
 2. $W(A)$ is convex as shown in the Hausdorff-Toeplitz theorem.
-    - Shapes that allow **line segments** to form outside of the shape, are not convex.
+    - Shapes that allow line segments to **form outside** of the shape, are **not** convex.
 3. 
 
 
 The $k$-numerical range, $W_k(A)$, is a generalization of the classical numerical range. Instead of computing a single value $x^*Ax$ for a unit vector $x$, this version averages over $k$ orthonormal vectors:
 
-$$W_k(A) = \left\{ \frac{1}{k} \sum_{i=1}^{k} x_i^* A x_i \ : \ x_i \text{ orthonormal} \right\}$$
+$$W_k(A) = \left\{ \frac{1}{k} \sum_{j=1}^{k} x_j^* A x_j \ : \ x_j \text{ orthonormal} \right\}$$
 
 
 This set is always:
@@ -93,7 +93,7 @@ This naive method was not well-suited for accurately tracing the boundary of the
 Starting of simple, we have matrix $A_1$, with a dimension of $n = 2$,
 
 $$
-A = \begin{bmatrix}
+A_1 = \begin{bmatrix}
     0 & 1 \\
     0 & 0
     \end{bmatrix}
@@ -120,7 +120,7 @@ $$\omega = \frac{-1+i\sqrt{3}}{2}$$
 Now,
 
 $$
-A = \begin{bmatrix}
+A_2 = \begin{bmatrix}
     1 & 0 & 0 \\
     0 & \omega & 0 \\
     0 & 0 & \omega^2
@@ -139,17 +139,17 @@ This result gave us a triangle for $k = 1$. As for $k = 2$, it shows a flipped t
 
 ### Matrix $A_3$
 
-Let $\omega$ equal,
+Let Matrix $A_3$ have a dimension of $n = 5$, then we combine both Matrices $A_1$ and $A_2$. Matrix $A_2$ is in the upper left and and $A_1$ is in the lower right. Which leaves us with,
 
-Then let Matrix $A_3$ have a dimension of $n = 5$, then we combine both Matrices $A_1$ and $A_2$. Matrix $A_2$ is in the upper left and and $A_1$ is in the lower right. Which leaves us with,
-
-$$A_1 = \begin{bmatrix}
+$$
+A_3 = \begin{bmatrix}
     1 & 0 & 0 & 0 & 0 \\
     0 & \omega & 0 & 0 & 0 \\
     0 & 0 & \omega^2 & 0 & 0 \\
     0 & 0 & 0 & 0 & 1 \\
     0 & 0 & 0 & 0 & 0
-   \end{bmatrix}$$
+   \end{bmatrix}
+$$
 
 Using the $k$-numerical range **algorithm** we get,
 
@@ -167,9 +167,11 @@ Using the $k$-numerical range **algorithm** we get,
 ---
 
 ### Matrix $A_4$
-Modifying $A_1$ by changing $1$ to $\frac{1}{2}$, we get $A_2$,
 
-$$A_1 = \begin{bmatrix}
+Modifying $A_3$ by changing it's $1$ to $\frac{1}{2}$, we get $A_4$,
+
+$$
+A_3 = \begin{bmatrix}
     1 & 0 & 0 & 0 & 0 \\
     0 & \omega & 0 & 0 & 0 \\
     0 & 0 & \omega^2 & 0 & 0 \\
@@ -179,13 +181,14 @@ $$A_1 = \begin{bmatrix}
 
 \quad \implies \quad
 
-A_2 = \begin{bmatrix}
+A_4 = \begin{bmatrix}
     1 & 0 & 0 & 0 & 0 \\
     0 & \omega & 0 & 0 & 0 \\
     0 & 0 & \omega^2 & 0 & 0 \\
     0 & 0 & 0 & 0 & \frac{1}{2} \\
     0 & 0 & 0 & 0 & 0
-   \end{bmatrix}$$
+   \end{bmatrix}
+$$
 
 <div align="center">
     <img src="images/A_4_Hexonal_Triangle.png" alt="Matrix A_4" width="500">
@@ -194,9 +197,10 @@ A_2 = \begin{bmatrix}
 ---
 
 ### Matrix $A_5$
-Lastly by changing matrix $A_1$ again, we make $1$ become a $2$, which gives $A_3$,
+Lastly by changing matrix $A_3$ again, we make $1$ become a $2$, which gives $A_5$,
 
-$$A_1 = \begin{bmatrix}
+$$
+A_3 = \begin{bmatrix}
     1 & 0 & 0 & 0 & 0 \\
     0 & \omega & 0 & 0 & 0 \\
     0 & 0 & \omega^2 & 0 & 0 \\
@@ -206,13 +210,14 @@ $$A_1 = \begin{bmatrix}
 
 \quad \implies \quad
 
-A_3 = \begin{bmatrix}
+A_5 = \begin{bmatrix}
     1 & 0 & 0 & 0 & 0 \\
     0 & \omega & 0 & 0 & 0 \\
     0 & 0 & \omega^2 & 0 & 0 \\
     0 & 0 & 0 & 0 & 2 \\
     0 & 0 & 0 & 0 & 0
-   \end{bmatrix}$$
+   \end{bmatrix}
+$$
 
 <div align="center">
     <img src="images/A_5_Triangular_Circle.png" alt="Matrix A_5" width="500">
